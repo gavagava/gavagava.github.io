@@ -1,8 +1,8 @@
-import EmailLabels from './emailLabels.js';
+import EmailEditor from './emailEditor.js';
 import addStyle from './addStyles.js';
 import RandomEmail from './randomEmail.js';
 
-const FormEmail = {};
+const FormEmail = { emailBlock: new EmailEditor() };
 
 //action for the button "Get emails count"
 const getEmails = (emailObject) => {
@@ -33,8 +33,8 @@ FormEmail.generate = (root) => {
     upperContainer.append(inputContainer);
 
     //create class with emails and generate first email input
-    const newEmail = new EmailLabels();
-    newEmail.generateNewInput(inputContainer);
+    // const emailBlock = new EmailEditor();
+    FormEmail.emailBlock.generateNewInput(inputContainer);
 
     //create lower container (for the buttons)
     var lowerContainer = document.createElement('div');
@@ -46,7 +46,7 @@ FormEmail.generate = (root) => {
     addEmailButton.setAttribute('class','addEmailButton');
     addEmailButton.onclick = function() {
         var randEm = new RandomEmail();
-        newEmail.generateNewInput(null, randEm.generate());
+        FormEmail.emailBlock.generateNewInput(null, randEm.generate());
         
     };
     addEmailButton.innerHTML = 'Add email';
@@ -56,21 +56,19 @@ FormEmail.generate = (root) => {
     var countEmailButton = document.createElement('button');
     countEmailButton.setAttribute('class','countEmailButton');
     countEmailButton.onclick = function() {
-        getEmails(newEmail);
+        getEmails(emailBlock);
     };
     countEmailButton.innerHTML = 'Get emails count';
     lowerContainer.append(countEmailButton);
 
     //create CSS styles
     addStyle(root);
-
     root.appendChild(container);
 }
-        
-export default FormEmail;
-        /*shadow.appendChild(style);
-        shadow.appendChild(container);*/
-    /*}
-}*/
 
-//customElements.define('emails-editor', EmailForm);
+FormEmail.getEmailList = () => {
+    let emailArr = FormEmail.emailBlock.getAllEmails().map(item => item.value);
+    return emailArr;
+}
+
+export default FormEmail;
