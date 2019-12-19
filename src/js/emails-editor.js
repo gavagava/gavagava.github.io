@@ -33,7 +33,6 @@ FormEmail.generate = (root) => {
     upperContainer.append(inputContainer);
 
     //create class with emails and generate first email input
-    // const emailBlock = new EmailEditor();
     FormEmail.emailBlock.generateNewInput(inputContainer);
 
     //create lower container (for the buttons)
@@ -56,9 +55,7 @@ FormEmail.generate = (root) => {
     var countEmailButton = document.createElement('button');
     countEmailButton.setAttribute('class','countEmailButton');
     countEmailButton.onclick = function() {
-        let a = FormEmail.getEmailList();
-        console.log(a);
-        //getEmails(FormEmail.emailBlock);
+        getEmails(FormEmail.emailBlock);
     };
     countEmailButton.innerHTML = 'Get emails count';
     lowerContainer.append(countEmailButton);
@@ -71,6 +68,9 @@ FormEmail.generate = (root) => {
 FormEmail.getEmailList = () => {
     let emailArr = FormEmail.emailBlock.getAllEmails().map(item => item.value);
     return emailArr;
+}
+FormEmail.setEmails = (value) => {
+    FormEmail.emailBlock.generateNewInput(null, value);
 }
 
 export default FormEmail;

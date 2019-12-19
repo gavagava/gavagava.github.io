@@ -43,7 +43,6 @@ class EmailEditor {
     }
 
     checkEmailValue(element) {
-        console.log('checkEmailValue', element.value)
         //value can contain space, it should be deleted
         let valueStr = element.value.replace(/\s/g, '');
         //check if value contain several emails
