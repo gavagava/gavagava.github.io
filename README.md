@@ -1,12 +1,12 @@
 # Email editors
 
-## Run build version:
+### Run build version:
 ```
 $ npm i
 $ webpack-dev-server
 ```
 
-## API:
+### API:
 - get list of emails: *getEmailList()*
 ```javascript
 var emailsList = FormEmail.getEmailList();
