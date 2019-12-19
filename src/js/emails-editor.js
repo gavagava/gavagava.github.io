@@ -56,7 +56,7 @@ FormEmail.generate = (root) => {
     var countEmailButton = document.createElement('button');
     countEmailButton.setAttribute('class','countEmailButton');
     countEmailButton.onclick = function() {
-        getEmails(emailBlock);
+        getEmails(FormEmail.emailBlock);
     };
     countEmailButton.innerHTML = 'Get emails count';
     lowerContainer.append(countEmailButton);
