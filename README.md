@@ -3,7 +3,7 @@
 ### Run build version:
 ```
 $ npm i
-$ webpack-dev-server
+$ npm run dev
 ```
 
 ### API:
@@ -19,3 +19,4 @@ result of emailsList:
 ```javascript
 FormEmail.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
+- subscribe for changes of emails list

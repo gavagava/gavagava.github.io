@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack --watch",
-    "bundle": "rollup -c"
+    "bundle": "rollup -c",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
