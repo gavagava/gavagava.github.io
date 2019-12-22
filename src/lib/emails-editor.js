@@ -1,4 +1,3 @@
-//import addStyle from '../assets/addStyles.js';
 import RandomEmail from './randomEmail.js';
 import Cross from './cross.js';
 import { renderNewEmailContainer } from './helpers.js';
@@ -76,14 +75,11 @@ const FormEmail = {
             FormEmail.emails.push(element);
             FormEmail.email = FormEmail.emails;
 
-            element.parentNode.style.backgroundColor = 'rgba(102, 153, 255, 0.2)';
-            element.parentNode.style.borderRadius = '100px';
-            element.parentNode.style.padding = '0 10px';
-            element.parentNode.style.margin= '0 5px 0 0';
-            fakeInput.style.padding = '0 10px 0 0';
+            element.parentNode.setAttribute('class', 'inputValid');
+            fakeInput.setAttribute('class', 'fakeInputValid');
         } else {
-            fakeInput.style.borderBottom = '1px dashed #d14836';
-            element.parentNode.style.margin= '0 20px 0 0';
+            element.parentNode.setAttribute('class', 'inputInvalid');
+            fakeInput.setAttribute('class', 'fakeInputInvalid');
         }
         //generating X with parent input and correct or incorrect param
         const newCross = new Cross();
@@ -135,7 +131,7 @@ const FormEmail = {
     
         //create Button "Add email"
         var addEmailButton = document.createElement('button');
-        addEmailButton.setAttribute('class','addEmailButton');
+        addEmailButton.setAttribute('class','clickButton');
         addEmailButton.onclick = function() {
             var randEm = new RandomEmail();
             FormEmail.generateNewInput(null, randEm.generate());
@@ -145,21 +141,17 @@ const FormEmail = {
     
         //create Button "Get emails count"
         var countEmailButton = document.createElement('button');
-        countEmailButton.setAttribute('class','countEmailButton');
+        countEmailButton.setAttribute('class','clickButton');
         countEmailButton.onclick = function() {
             getEmails(FormEmail.emails);
         };
         countEmailButton.innerHTML = 'Get emails count';
         lowerContainer.append(countEmailButton);
     
-        //create CSS styles
-        //addStyle(root);
         root.appendChild(container);
     },
-    subscribeEmailChanges: () => {
-        FormEmail.defineListener(() => {
-            console.log(`Someone changed the value of emails to ${FormEmail.emails.map(item => item.value).join(', ')}`);
-        });
+    subscribeEmailChanges: (callback) => {
+        FormEmail.defineListener(callback);
     },
     getEmailsList: () => {
         return FormEmail.emails.map(item => item.value)

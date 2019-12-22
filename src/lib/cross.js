@@ -4,7 +4,7 @@ class Cross {
         this.isValid = true;
     }
 
-    deleteEmail(event) {
+    deleteEmail() {
         this.parentInput.parentElement.removeChild(this.parentInput);
     }
 
@@ -14,9 +14,9 @@ class Cross {
 
         let crossElement = document.createElement('span');
         //color of X depends of correct input's value
-        crossElement.setAttribute('class', isValid ? 'inputCorrect' : 'inputIncorrect' );
+        crossElement.setAttribute('class', isValid ? 'closeValid' : 'closeInvalid' );
 
-        crossElement.addEventListener('click', (event) => this.deleteEmail(event));
+        crossElement.addEventListener('click', () => this.deleteEmail());
         this.parentInput.append(crossElement);
     }
 }

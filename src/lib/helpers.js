@@ -1,10 +1,9 @@
 export const renderNewEmailContainer = (newEmail) => {
     let container = document.createElement('span');
-    container.setAttribute('class', 'inputCont');
-    container.style.position = 'relative';
+    container.setAttribute('class', 'mainInputContainer');
 
     newEmail = document.createElement('input');
-    newEmail.setAttribute('class', 'emailInput');
+    newEmail.setAttribute('class', 'mainInput');
     newEmail.setAttribute('type', 'text');
     newEmail.setAttribute('placeholder', 'add more people...');
     

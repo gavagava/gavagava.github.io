@@ -1,164 +1,167 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 body {
+    font-family: 'Open Sans', sans-serif;
     background-color: green;
 }
 
-.inputCorrect {
-    width: calc(100% - 13px);
-    position: absolute;
-    right: 6px;
-    top: 12px;
-    width: 10px;
-    height: 10px;
-    background: 0 0;
-    transform: rotate(45deg);
-    cursor: pointer;
-}
-.inputCorrect::after {
-    position: absolute;
-    content: '';
-    width: 9px;
-    height: 1px;
-    margin-left: -4px;
-    background: black;
-}
-.inputCorrect::before {
-    position: absolute;
-    content: '';
-    width: 1px;
-    height: 9px;
-    margin-top: -4px;
-    background: black;
-}
-.inputIncorrect {
-    position: absolute;
-    right: -13px;
-    top: 12px;
-    width: 10px;
-    height: 10px;
-    background: 0 0;
-    transform: rotate(45deg);
-    cursor: pointer;
-}
-.inputIncorrect::after {
-    position: absolute;
-    content: '';
-    width: 9px;
-    height: 1px;
-    margin-left: -4px;
-    background: #C3C2CF;
-}
-.inputIncorrect::before {
-    position: absolute;
-    content: '';
-    width: 1px;
-    height: 9px;
-    margin-top: -4px;
-    background: #C3C2CF;
-}
 .formContainer {
-    height: 300px;
-    width: 540px;
+    max-width: 540px;
+    max-height: 300px;
+    height: 100%;
+    width: 100%;
     background: #FFFFFF;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
 }
 .upperContainer {
     height: 204px;
-    width: 100%;
     background: #F8F8F7;
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px;
+    padding: 0 50px;
 }
 .header {
     font-size: 20px;
     line-height: 27px;
-    margin-bottom: 24px;
-    width: 100%;
-    position: absolute;
-    top: 32px;
-    left: 50px;
+    margin: 30px 0 24px 0;
 }
 .inputContainer {
     overflow: auto;
-    width: 440px;
     height: 96px;
     border: 1px solid #C3C2CF;
     box-sizing: border-box;
     border-radius: 4px;
     background: #FFFFFF;
-    font-family: Open Sans;
     font-size: 14px;
     line-height: 24px;
-    padding: 8px 7px;
+    padding: 8px;
     position: relative;
-    top: 84px;
-    left: 50px;
+    margin-bottom: 24px;
 }
 input {
     -webkit-appearance: none;
-}
-input::placeholder {
-    color: #C3C2CF;
-    font-family: Open Sans;
-    font-size: 14px;
-    line-height: 24px;
+    &::placeholder {
+        color: #C3C2CF;
+        font-size: 14px;
+        line-height: 24px;
+    }
 }
 .lowerContainer {
     background-color: #FFFFFF;
-    width: 540px;
     height: 96px;
-    border-radius: 0 0 8px 8px;
     padding: 24px 50px;
+    flex-direction: row;
 }
-.addEmailButton {
-    background: #4262FF;
+.clickButton {
+    background: #455bed;
     border-radius: 6px;
-    width: 96px;
+    padding: 0 16px;
     height: 40px;
-    display: inline-block;
     border: none;
-    font-family: Open Sans;
     font-size: 14px;
     line-height: 24px;
     color: #FFFFFF;
     margin-right: 16px;
     outline: none;
+    opacity: 0.93;
+    transition: 0.4s;
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
 }
-.addEmailButton:hover {
-    background-color: #455bed;
-    cursor: pointer;
-}
-.countEmailButton {
-    background: #4262FF;
-    border-radius: 6px;
-    width: 142px;
-    height: 40px;
-    display: inline-block;
-    border: none;
-    font-family: Open Sans;
-    font-size: 14px;
-    line-height: 24px;
-    color: #FFFFFF;
-    outline: none;
-}
-.countEmailButton:hover {
-    background-color: #455bed;
-    cursor: pointer;
-}
-.emailLabel {
-    background: rgba(102, 153, 255, 0.2);
-    border-radius: 100px;
-    position: absolute;
-    left: 0;
-}
-.emailInput {
-    width: inherit;
+.mainInput {
     border: 0;
-    appearance: none;
     outline: none;
-    font-family: Open Sans;
     font-size: 14px;
     line-height: 24px;
+}
+.mainInputContainer {
+    position: relative;
+}
+@-webkit-keyframes appear {
+    1% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.inputInvalid {
+    position: relative;
+    margin: 0 20px 0 0;
+    -webkit-animation: appear 0.2s ease-out;
+    -moz-animation: appear 0.2s ease-out;
+    -o-animation: appear 0.2s ease-out;
+    animation: appear 0.2s ease-out;
+}
+.inputValid {
+    background-color: rgba(102, 153, 255, 0.2);
+    border-radius: 100px;
+    padding: 0 10px;
+    margin: 0 5px 0 0;
+    position: relative;
+    -webkit-animation: appear 0.2s ease-out;
+    -moz-animation: appear 0.2s ease-out;
+    -o-animation: appear 0.2s ease-out;
+    animation: appear 0.2s ease-out;
+}
+.fakeInputValid {
+    padding: 0 10px 0 0px;
+}
+.fakeInputInvalid {
+    border-bottom: 1px dashed #d14836;
+}
+.closeValid {
+    position: absolute;
+    right: 6px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    &::after {
+        position: absolute;
+        content: '';
+        width: 9px;
+        height: 1px;
+        margin-left: -4px;
+        background: black;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 9px;
+        margin-top: -4px;
+        background: black;
+    }
+}
+.closeInvalid {
+    position: absolute;
+    right: -13px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    &::after {
+        position: absolute;
+        content: '';
+        width: 9px;
+        height: 1px;
+        margin-left: -4px;
+        background: #C3C2CF;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 9px;
+        margin-top: -4px;
+        background: #C3C2CF;
+    }
 }
