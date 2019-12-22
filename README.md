@@ -1,7 +1,6 @@
 # Email editors
 
 ## Usage:
-======
 To use library in your project you need to create *div* element with id='emails-editor' and import EmailsEditor like this (in HTML)
 ```html
 <div id="emails-editor" style="width:540px;height:300px;"></div>
@@ -21,14 +20,12 @@ EmailsEditor.initEmailsEditor();
 ```
 
 ## Run build version:
-======
 ```
 $ npm i
 $ npm run dev
 ```
 
 ## API:
-======
 - initializing form:
 
  **getEmailList()**
