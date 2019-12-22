@@ -31,7 +31,7 @@ $ npm run dev
 ## API:
 - initializing form:
 
- **getEmailList()**
+ **initEmailsEditor()**
 
 ```javascript
 import EmailsEditor from 'emails-editor';
