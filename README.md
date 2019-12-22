@@ -1,5 +1,24 @@
 # Email editors
 
+### Usage:
+To use library in your project you need to create *div* element with id='emails-editor' and import EmailsEditor like this (in HTML)
+```html
+<div id="emails-editor" style="width:540px;height:300px;"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elem = document.getElementById('emails-editor');
+            let instance = new EmailsEditor(elem);
+            instance.initEmailsEditor();
+        })
+    </script>
+```
+... or like this (in your .js file)
+```javascript
+import EmailsEditor from 'emails-editor'
+
+EmailsEditor.initEmailsEditor();
+```
+
 ### Run build version:
 ```
 $ npm i
@@ -7,22 +26,29 @@ $ npm run dev
 ```
 
 ### API:
-- get list of emails:
-**getEmailList()**
+- initializing form: **getEmailList()**
+
 ```javascript
-var emailsList = getEmailList();
+import EmailsEditor from 'emails-editor';
+
+var emailsList = EmailsEditor.getEmailList();
 ```
-result of emailsList:
+
+- get emails list: **getEmailList()**
+```javascript
+var emailsList = EmailsEditor.getEmailList();
+```
+the value of emailsList:
 ```
 ["lena4114@mail.ru", "galina2001@yandex.ru", "vova5@gmail.com"]
 ```
-- set single email or list:
-**setEmails()**
+
+- set new email (single or several): **setEmails()**
 ```javascript
-setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
+EmailsEditor.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
-- subscribe for changes of emails list:
-**subscribeEmailChanges(callback)**
+
+- subscribe for changes of emails list: **subscribeEmailChanges(callback)**
 ```javascript
-subscribeEmailChanges(() => console.log('List of emails has changed'));
+EmailsEditor.subscribeEmailChanges(() => console.log('List of emails has changed'));
 ```

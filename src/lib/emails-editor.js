@@ -1,6 +1,5 @@
 import RandomEmail from './randomEmail.js';
 import Cross from './cross.js';
-import { renderNewEmailContainer } from './helpers.js';
 
 const FormEmail = {
     current: this,
@@ -10,6 +9,7 @@ const FormEmail = {
     regExp: /^[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,64}/i,
     root: null,
     listener: () => {},
+    //to trigger listener
     set email(newValue) {
         this.toListen = newValue,
         this.listener(newValue);
@@ -17,6 +17,7 @@ const FormEmail = {
     get email() {
         return this.toListen;
     },
+    //to set callback on emails list changes
     defineListener: (listener) => {
         FormEmail.listener = listener;
     },
@@ -37,11 +38,8 @@ const FormEmail = {
             FormEmail.checkEmailValue(newEmail);
             return;
         }
-        newEmail.addEventListener('keypress', (event) => {
-            newEmail.removeEventListener('blur', (event) => FormEmail.handleBlur(event));
-            FormEmail.handleKeyPress(event, newEmail)
-        });
-        newEmail.addEventListener('blur', (event) => FormEmail.handleBlur(event));
+        newEmail.addEventListener('keypress', (event) => handleKeyPress(event, newEmail));
+        newEmail.addEventListener('blur', (event) => handleBlur(event));
     },
     checkEmailValue: (element) => {
         //value can contain space, it should be deleted
@@ -87,19 +85,7 @@ const FormEmail = {
 
         FormEmail.currentEmptyEmail = null;
     },
-    handleKeyPress: (event) => {
-        if (event.keyCode === 13 || event.keyCode === 44) {
-            FormEmail.checkEmailValue(event.target);
-        }
-    },
-    handleBlur: (event) => {
-        if (event.target.value.length > 0) {
-            //there is a bug: pressing ENTER or COMMA firing both keypress and blur events
-            //to avoid it, check if created input has style display:none
-            if (event.target.style.display === 'none') return;
-            FormEmail.checkEmailValue(event.target)
-        };
-    },
+    //set main HTML-structure of email editor
     generate: (root) => {
         //main form container
         var container = document.createElement('div');
@@ -116,7 +102,7 @@ const FormEmail = {
         header.innerHTML = "Share <strong>Board name</strong> with others";
         upperContainer.append(header);
     
-        //create input's container
+        //create email input's container
         var inputContainer = document.createElement('div');
         inputContainer.setAttribute('class', 'inputContainer');
         upperContainer.append(inputContainer);
@@ -132,7 +118,7 @@ const FormEmail = {
         //create Button "Add email"
         var addEmailButton = document.createElement('button');
         addEmailButton.setAttribute('class','clickButton');
-        addEmailButton.onclick = function() {
+        addEmailButton.onclick = () => {
             var randEm = new RandomEmail();
             FormEmail.generateNewInput(null, randEm.generate());
         };
@@ -142,7 +128,7 @@ const FormEmail = {
         //create Button "Get emails count"
         var countEmailButton = document.createElement('button');
         countEmailButton.setAttribute('class','clickButton');
-        countEmailButton.onclick = function() {
+        countEmailButton.onclick = () => {
             getEmails(FormEmail.emails);
         };
         countEmailButton.innerHTML = 'Get emails count';
@@ -150,15 +136,24 @@ const FormEmail = {
     
         root.appendChild(container);
     },
+    //set firing callback in setter
     subscribeEmailChanges: (callback) => {
         FormEmail.defineListener(callback);
     },
-    getEmailsList: () => {
-        return FormEmail.emails.map(item => item.value)
-    },
-    setEmail: (email) => {
-        FormEmail.generateNewInput(null, email);
+};
+
+const handleKeyPress = (event) => {
+    if (event.keyCode === 13 || event.keyCode === 44) {
+        FormEmail.checkEmailValue(event.target);
     }
+};
+const handleBlur = (event) => {
+    if (event.target.value.length > 0) {
+        //there is a bug: pressing ENTER or COMMA firing both keypress and blur events
+        //to avoid it, check if created input has style display:none
+        if (event.target.style.display === 'none') return;
+        FormEmail.checkEmailValue(event.target)
+    };
 };
 
 //action for the button "Get emails count"
@@ -167,7 +162,18 @@ const getEmails = (emailObject) => {
     alert(`Valid emails: ${emails.length}`);
 }
 
-//creating main HTML-structure of email editor
+//set HTML-structure of nex input
+const renderNewEmailContainer = (newEmail) => {
+    let container = document.createElement('span');
+    container.setAttribute('class', 'mainInputContainer');
 
+    newEmail = document.createElement('input');
+    newEmail.setAttribute('class', 'mainInput');
+    newEmail.setAttribute('type', 'text');
+    newEmail.setAttribute('placeholder', 'add more people...');
+    
+    container.append(newEmail);
+    return newEmail;
+}
 
 export default FormEmail;

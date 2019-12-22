@@ -27,7 +27,7 @@ export class EmailsEditor {
      * @returns {array} - array of string emails
      */
     getEmailsList() {
-        return FormEmail.emails.map(item => item.value)
+        return FormEmail.emails.map(item => item.value);
     };
 
     /**

@@ -2,15 +2,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>User Application</title>
+        <title>Try out emails editor!</title>
     </head>
     <body>
-        <div id="emails-editor"></div>
+        <div id="emails-editor" style="width:540px;height:300px;"></div>
         <script>
-            document.addEventListener('DOMContentLoaded', function(){
+            document.addEventListener('DOMContentLoaded', function() {
                 var elem = document.getElementById('emails-editor');
                 let instance = new EmailsEditor(elem);
                 instance.initEmailsEditor();
+                instance.subscribeEmailChanges(() => console.log('emails has changed'))
             })
         </script>
     <script type="text/javascript" src="bundle.js"></script></body>
