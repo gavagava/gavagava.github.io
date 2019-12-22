@@ -36,7 +36,7 @@ body {
     background: #FFFFFF;
     font-size: 14px;
     line-height: 24px;
-    padding: 8px 10px 8px 8px;
+    padding: 8px;
     position: relative;
     margin-bottom: 24px;
 }
@@ -90,19 +90,23 @@ input {
     }
 }
 .inputInvalid {
+    display: inline-block;
     position: relative;
     margin: 0 20px 0 0;
+    margin-bottom: 3px;
     -webkit-animation: appear 0.2s ease-out;
     -moz-animation: appear 0.2s ease-out;
     -o-animation: appear 0.2s ease-out;
     animation: appear 0.2s ease-out;
 }
 .inputValid {
+    display: inline-block;
     background-color: rgba(102, 153, 255, 0.2);
     border-radius: 100px;
     padding: 0 10px;
     margin: 0 5px 0 0;
     position: relative;
+    margin-bottom: 3px;
     -webkit-animation: appear 0.2s ease-out;
     -moz-animation: appear 0.2s ease-out;
     -o-animation: appear 0.2s ease-out;
@@ -117,7 +121,7 @@ input {
 .closeValid {
     position: absolute;
     right: 6px;
-    top: 12px;
+    top: 14px;
     width: 10px;
     height: 10px;
     transform: rotate(45deg);
@@ -142,7 +146,7 @@ input {
 .closeInvalid {
     position: absolute;
     right: -13px;
-    top: 12px;
+    top: 14px;
     width: 10px;
     height: 10px;
     transform: rotate(45deg);
