@@ -43,12 +43,14 @@ the value of emailsList:
 ["lena4114@mail.ru", "galina2001@yandex.ru", "vova5@gmail.com"]
 ```
 
-- set new email (single or several): **setEmails()**
+- set new email (single or several): **setEmails(value)**
+Param - string
 ```javascript
 EmailsEditor.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
 
 - subscribe for changes of emails list: **subscribeEmailChanges(callback)**
+Param - function
 ```javascript
 EmailsEditor.subscribeEmailChanges(() => console.log('List of emails has changed'));
 ```
