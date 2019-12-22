@@ -8,10 +8,9 @@
         <div id="emails-editor" style="width:540px;height:300px;"></div>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                var elem = document.getElementById('emails-editor');
+                let elem = document.getElementById('emails-editor');
                 let instance = new EmailsEditor(elem);
                 instance.initEmailsEditor();
-                instance.subscribeEmailChanges(() => console.log('emails has changed'))
             })
         </script>
     <script type="text/javascript" src="bundle.js"></script></body>
