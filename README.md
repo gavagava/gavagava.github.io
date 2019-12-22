@@ -1,6 +1,7 @@
 # Email editors
 
-### Usage:
+## Usage:
+======
 To use library in your project you need to create *div* element with id='emails-editor' and import EmailsEditor like this (in HTML)
 ```html
 <div id="emails-editor" style="width:540px;height:300px;"></div>
@@ -18,15 +19,19 @@ import EmailsEditor from 'emails-editor'
 
 EmailsEditor.initEmailsEditor();
 ```
+
+## Run build version:
 ======
-### Run build version:
 ```
 $ npm i
 $ npm run dev
 ```
+
+## API:
 ======
-### API:
-- initializing form: **getEmailList()**
+- initializing form:
+
+ **getEmailList()**
 
 ```javascript
 import EmailsEditor from 'emails-editor';
@@ -36,7 +41,9 @@ let instance = new EmailsEditor(elem);
 instance.initEmailsEditor();
 ```
 
-- get emails list: **getEmailList()**
+- get emails list:
+
+**getEmailList()**
 ```javascript
 let emailsList = EmailsEditor.getEmailList();
 ```
@@ -45,16 +52,20 @@ emailsList will contain array with strings:
 ["lena4114@mail.ru", "galina2001@yandex.ru", "vova5@gmail.com"]
 ```
 
-- set new email (single or several): **setEmails(value)**
+- set new email (single or several):
 
-Param - string
+**setEmails(arg)**
+
+where arg - string
 ```javascript
 EmailsEditor.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
 
-- subscribe for changes of emails list: **subscribeEmailChanges(callback)**
+- subscribe for changes of emails list:
 
-Param - function
+**subscribeEmailChanges(arg)**
+
+where arg - function
 ```javascript
 EmailsEditor.subscribeEmailChanges(() => console.log('List of emails has changed'));
 ```
