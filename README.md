@@ -29,10 +29,9 @@ $ npm run dev
 ```
 
 ## API:
-- initializing form:
+- **initEmailsEditor()**
 
- **initEmailsEditor()**
-
+Initializing form of emails editor
 ```javascript
 import EmailsEditor from 'emails-editor';
 
@@ -41,31 +40,41 @@ let emailForm = new EmailsEditor(elem);
 emailForm.initEmailsEditor();
 ```
 
-- get emails list:
+- **getEmailsList()**
 
-**getEmailsList()**
+Get list of emails
 ```javascript
-let emailsList = EmailsEditor.getEmailsList();
+import EmailsEditor from 'emails-editor';
+
+let elem = document.getElementById('emails-editor');
+let emailForm = new EmailsEditor(elem);
+let emailsList = emailForm.getEmailsList();
 ```
 emailsList will contain array with strings:
 ```
 ["lena4114@mail.ru", "galina2001@yandex.ru", "vova5@gmail.com"]
 ```
 
-- set new emails (single or several):
+- **setEmails(arg)**
 
-**setEmails(arg)**
 
-where arg - string
+Set new emails (single or several). Argument - string.
 ```javascript
-EmailsEditor.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
+import EmailsEditor from 'emails-editor';
+
+let elem = document.getElementById('emails-editor');
+let emailForm = new EmailsEditor(elem);
+emailForm.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
 
-- subscribe for changes of emails list:
+- **subscribeEmailChanges(arg)**
 
-**subscribeEmailChanges(arg)**
 
-where arg - function
+Subscribe for changes of emails list. Argument - function.
 ```javascript
-EmailsEditor.subscribeEmailChanges(() => console.log('List of emails has changed'));
+import EmailsEditor from 'emails-editor';
+
+let elem = document.getElementById('emails-editor');
+let emailForm = new EmailsEditor(elem);
+emailForm.subscribeEmailChanges(() => console.log('List of emails has changed'));
 ```
