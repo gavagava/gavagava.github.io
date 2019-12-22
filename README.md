@@ -23,6 +23,10 @@ let emailForm = new EmailsEditor(elem);
 emailForm.initEmailsEditor();
 ```
 
+## Form buttons
+**Add email** - add a random email to the list;
+**Get emails count** - show an alert with valid emails count.
+
 ## Run build version:
 ```
 $ npm i
