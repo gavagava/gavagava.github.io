@@ -52,13 +52,13 @@ emailsList will contain array with strings:
 ["lena4114@mail.ru", "galina2001@yandex.ru", "vova5@gmail.com"]
 ```
 
-- set new email (single or several):
+- set new emails (single or several):
 
-**setEmail(arg)**
+**setEmails(arg)**
 
 where arg - string
 ```javascript
-EmailsEditor.setEmail('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
+EmailsEditor.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
 
 - subscribe for changes of emails list:

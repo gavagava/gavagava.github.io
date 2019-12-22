@@ -34,7 +34,7 @@ export class EmailsEditor {
      * Set new email (single or several)
      * @param {string} email - string with email's value
      */
-    setEmail(email) {
+    setEmails(email) {
         FormEmail.generateNewInput(null, email);
     };
 }
