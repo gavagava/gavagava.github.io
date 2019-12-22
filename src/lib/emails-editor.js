@@ -88,22 +88,22 @@ const FormEmail = {
     //set main HTML-structure of email editor
     generate: (root) => {
         //main form container
-        var container = document.createElement('div');
+        let container = document.createElement('div');
         container.setAttribute('class','formContainer');
     
         //upper container (with header and input's container)
-        var upperContainer = document.createElement('div');
+        let upperContainer = document.createElement('div');
         upperContainer.setAttribute('class','upperContainer');
         container.append(upperContainer);
     
         //create header
-        var header = document.createElement('div');
+        let header = document.createElement('div');
         header.setAttribute('class', 'header');
         header.innerHTML = "Share <strong>Board name</strong> with others";
         upperContainer.append(header);
     
         //create email input's container
-        var inputContainer = document.createElement('div');
+        let inputContainer = document.createElement('div');
         inputContainer.setAttribute('class', 'inputContainer');
         upperContainer.append(inputContainer);
     
@@ -111,22 +111,22 @@ const FormEmail = {
         FormEmail.generateNewInput(inputContainer);
     
         //create lower container (for the buttons)
-        var lowerContainer = document.createElement('div');
+        let lowerContainer = document.createElement('div');
         lowerContainer.setAttribute('class','lowerContainer');
         container.append(lowerContainer);
     
         //create Button "Add email"
-        var addEmailButton = document.createElement('button');
+        let addEmailButton = document.createElement('button');
         addEmailButton.setAttribute('class','clickButton');
         addEmailButton.onclick = () => {
-            var randEm = new RandomEmail();
+            let randEm = new RandomEmail();
             FormEmail.generateNewInput(null, randEm.generate());
         };
         addEmailButton.innerHTML = 'Add email';
         lowerContainer.append(addEmailButton);
     
         //create Button "Get emails count"
-        var countEmailButton = document.createElement('button');
+        let countEmailButton = document.createElement('button');
         countEmailButton.setAttribute('class','clickButton');
         countEmailButton.onclick = () => {
             getEmails(FormEmail.emails);
