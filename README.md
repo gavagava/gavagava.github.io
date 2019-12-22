@@ -68,7 +68,7 @@ let emailForm = new EmailsEditor(elem);
 emailForm.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
 
-- **subscribeEmailChanges(arg)**
+- **subscribeEmailsChanges(arg)**
 
 
 Subscribe for changes of emails list. Argument - function.
@@ -77,5 +77,5 @@ import EmailsEditor from 'emails-editor';
 
 let elem = document.getElementById('emails-editor');
 let emailForm = new EmailsEditor(elem);
-emailForm.subscribeEmailChanges(() => console.log('List of emails has changed'));
+emailForm.subscribeEmailsChanges(() => console.log('List of emails has changed'));
 ```

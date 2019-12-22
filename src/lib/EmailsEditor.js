@@ -18,7 +18,7 @@ export class EmailsEditor {
      * Subscribe on emails list changes
      * @param {function} callback - callback-method
      */
-    subscribeEmailChanges(callback) {
+    subscribeEmailsChanges(callback) {
         FormEmail.defineListener(callback);
     };
 
