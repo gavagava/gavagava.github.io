@@ -24,5 +24,5 @@ setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 - subscribe for changes of emails list:
 **subscribeEmailChanges(callback)**
 ```javascript
-subscribeEmailChanges(() => console.log('List of emails has changed));
+subscribeEmailChanges(() => console.log('List of emails has changed'));
 ```
