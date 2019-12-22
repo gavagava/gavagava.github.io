@@ -8,7 +8,7 @@ class Cross {
         this.parentInput.parentElement.removeChild(this.parentInput);
     }
 
-    generate(element, isValid) {
+    generate(element, isValid, callbackDelete) {
         this.parentInput = element.parentElement;
         this.isValid = isValid;
 
@@ -16,7 +16,10 @@ class Cross {
         //color of X depends of correct input's value
         crossElement.setAttribute('class', isValid ? 'closeValid' : 'closeInvalid' );
 
-        crossElement.addEventListener('click', () => this.deleteEmail());
+        crossElement.addEventListener('click', () => {
+            this.deleteEmail();
+            callbackDelete(element.value);
+        });
         this.parentInput.append(crossElement);
     }
 }

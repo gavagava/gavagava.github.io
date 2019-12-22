@@ -70,7 +70,8 @@ const FormEmail = {
         element.parentNode.appendChild(fakeInput);
         element.style.display = 'none';
         if (isValid) {
-            FormEmail.emails.push(element);
+            FormEmail.emails.push(element.value);
+            //to check if emails list changes
             FormEmail.email = FormEmail.emails;
 
             element.parentNode.setAttribute('class', 'inputValid');
@@ -81,7 +82,7 @@ const FormEmail = {
         }
         //generating X with parent input and correct or incorrect param
         const newCross = new Cross();
-        newCross.generate(element, isValid);
+        newCross.generate(element, isValid, callbackDelete);
 
         FormEmail.currentEmptyEmail = null;
     },
@@ -142,6 +143,14 @@ const FormEmail = {
     },
 };
 
+//to delete emails from attribute emails 
+const callbackDelete = (value) => {
+    let emailToDelete = FormEmail.emails.indexOf(value);
+    FormEmail.emails.splice(emailToDelete, 1);
+    //to check if emails list changes
+    FormEmail.email = FormEmail.emails;
+}
+
 const handleKeyPress = (event) => {
     if (event.keyCode === 13 || event.keyCode === 44) {
         FormEmail.checkEmailValue(event.target);
@@ -158,8 +167,7 @@ const handleBlur = (event) => {
 
 //action for the button "Get emails count"
 const getEmails = (emailObject) => {
-    let emails = emailObject.map(email => email.value);
-    alert(`Valid emails: ${emails.length}`);
+    alert(`Valid emails: ${emailObject.length}`);
 }
 
 //set HTML-structure of nex input

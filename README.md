@@ -16,9 +16,10 @@ To use library in your project you need to create *div* element with *id='emails
 ```
 ... or like this (in your .js file)
 ```javascript
-import EmailsEditor from 'emails-editor'
+import EmailsEditor from 'emails-editor';
 
-EmailsEditor.initEmailsEditor();
+let emailForm = new EmailsEditor(elem);
+emailForm.initEmailsEditor();
 ```
 
 ## Run build version:
@@ -36,15 +37,15 @@ $ npm run dev
 import EmailsEditor from 'emails-editor';
 
 let elem = document.getElementById('emails-editor');
-let instance = new EmailsEditor(elem);
-instance.initEmailsEditor();
+let emailForm = new EmailsEditor(elem);
+emailForm.initEmailsEditor();
 ```
 
 - get emails list:
 
-**getEmailList()**
+**getEmailsList()**
 ```javascript
-let emailsList = EmailsEditor.getEmailList();
+let emailsList = EmailsEditor.getEmailsList();
 ```
 emailsList will contain array with strings:
 ```
@@ -53,11 +54,11 @@ emailsList will contain array with strings:
 
 - set new email (single or several):
 
-**setEmails(arg)**
+**setEmail(arg)**
 
 where arg - string
 ```javascript
-EmailsEditor.setEmails('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
+EmailsEditor.setEmail('lena4114@mail.ru, galina2001@yandex.ru, vova5@gmail.com');
 ```
 
 - subscribe for changes of emails list:
