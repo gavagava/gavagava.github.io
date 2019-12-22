@@ -18,6 +18,7 @@ To use library in your project you need to create *div* element with *id='emails
 ```javascript
 import EmailsEditor from 'emails-editor';
 
+let elem = document.getElementById('emails-editor');
 let emailForm = new EmailsEditor(elem);
 emailForm.initEmailsEditor();
 ```
