@@ -1,4 +1,4 @@
-import addStyle from './addStyles.js';
+//import addStyle from '../assets/addStyles.js';
 import RandomEmail from './randomEmail.js';
 import Cross from './cross.js';
 import { renderNewEmailContainer } from './helpers.js';
@@ -153,7 +153,7 @@ const FormEmail = {
         lowerContainer.append(countEmailButton);
     
         //create CSS styles
-        addStyle(root);
+        //addStyle(root);
         root.appendChild(container);
     },
     subscribeEmailChanges: () => {

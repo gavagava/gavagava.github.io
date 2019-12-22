@@ -1,5 +1,5 @@
 {
-  "name": "EmailForm",
+  "name": "emails-editor",
   "version": "1.0.0",
   "description": "",
   "main": "dist/bundle.js",
@@ -8,7 +8,7 @@
     "build": "webpack",
     "start": "webpack --watch",
     "bundle": "rollup -c",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
@@ -22,21 +22,22 @@
   },
   "homepage": "https://github.com/GoldilocksJB/EmailForm#readme",
   "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
-    "@babel/node": "^7.7.4",
-    "@babel/preset-env": "^7.7.6",
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^3.2.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "cssnano": "^4.1.10",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.9.0"
-  }
+  },
+  "dependencies": {}
 }
