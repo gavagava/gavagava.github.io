@@ -1,7 +1,9 @@
-# Email editors
+# Emails editor
+
+Emails editor library represents the form that helps userы to manage with entered email addresses.
 
 ## Usage:
-To use library in your project you need to create *div* element with id='emails-editor' and import EmailsEditor like this (in HTML)
+To use library in your project you need to create *div* element with *id='emails-editor'* and import EmailsEditor like this (in HTML)
 ```html
 <div id="emails-editor" style="width:540px;height:300px;"></div>
     <script>
