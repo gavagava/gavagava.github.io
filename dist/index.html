@@ -9,7 +9,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 let elem = document.getElementById('emails-editor');
-                let instance = new EmailsEditor(elem);
+                window.instance = new EmailsEditor(elem);
                 instance.initEmailsEditor();
             })
         </script>
